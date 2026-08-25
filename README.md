@@ -1,6 +1,6 @@
 ===============================================================================
                      ALFA SAÚDE - SISTEMA DE GESTÃO CLÍNICA
-                         INSTRUÇÕES DE INSTALAÇÃO
+                         
 ===============================================================================
 
 1. REQUISITOS DO SISTEMA
@@ -67,7 +67,19 @@
    - Telefone: (85) 2028-4584
    - Site: https://alfasistemas.dev.br
 
-===============================================================================
-                         Obrigado por escolher a Alfa Sistemas!
-===============================================================================
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/1be75638-c7b6-4fbe-8019-df32b87f2ecb" />
+
+     
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/1be75638-c7b6-4fbe-8019-df32b87f2ecb" /><img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/b87f8796-567d-458e-acfd-bddaa01b2d27" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/6a1e6c83-2fef-4cb2-bb71-c4b9aa8656d3" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/930b97b7-ab75-45ea-a134-366effe68f3a" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/9a5a6b19-c9b3-4a9f-a9f2-e38ca27f36b2" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/1f0670a1-ec87-47c8-b867-81047259a6cd" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/e16ec72c-fb29-4c23-a79e-7f4fe1d4cabe" /><img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/492675c4-74ca-42ca-92bc-a7f4f9fc9fef" />
+
+
+
+
+
+
+
+
