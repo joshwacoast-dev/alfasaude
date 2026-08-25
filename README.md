@@ -5,6 +5,7 @@
 [![PHP](https://img.shields.io/badge/PHP-8.0%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
 [![MySQL](https://img.shields.io/badge/MySQL-5.7%2B-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![XAMPP](https://img.shields.io/badge/XAMPP-Supported-FB7A24?style=for-the-badge&logo=xampp&logoColor=white)](https://www.apachefriends.org/)
+[![Web Hosting](https://img.shields.io/badge/Online%20Server-cPanel%20%7C%20VPS-008080?style=for-the-badge&logo=cpanel&logoColor=white)](#)
 [![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](#)
 
 Sistema web completo para gestão integrada de clínicas, agendamentos, prontuários eletrônicos e controle de pacientes.
@@ -19,8 +20,8 @@ Sistema web completo para gestão integrada de clínicas, agendamentos, prontuá
 - [Recursos do Sistema](#-recursos-do-sistema)
 - [Pré-requisitos](#-pré-requisitos)
 - [Instalação e Configuração](#-instalação-e-configuração)
-  - [Opção A: Ambiente Local com XAMPP (Recomendado para Testes/Dev)](#opção-a-ambiente-local-com-xampp-recomendado-para-testesdev)
-  - [Opção B: Servidor Web / Hospedagem](#opção-b-servidor-web--hospedagem)
+  - [🖥️ Opção 1: Instalação Online (Servidor Web / Hospedagem / VPS)](#️-opção-1-instalação-online-servidor-web--hospedagem--vps)
+  - [💻 Opção 2: Instalação Local com XAMPP](#-opção-2-instalação-local-com-xampp)
 - [Acesso Inicial](#-acesso-inicial)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
 - [Personalização](#-personalização)
@@ -43,8 +44,8 @@ Sistema web completo para gestão integrada de clínicas, agendamentos, prontuá
 
 | Componente | Requisito Mínimo | Recomendado |
 | :--- | :--- | :--- |
-| **Servidor Local** | XAMPP (com PHP 7.4+) | XAMPP para Windows/Linux/macOS |
-| **Servidor Web** | Apache / Nginx | Apache 2.4+ com `mod_rewrite` |
+| **Servidor Web** | Apache 2.4+ / Nginx | Apache com `mod_rewrite` ativado |
+| **Ambiente Local** | XAMPP v8.0+ | XAMPP para Windows / Linux / macOS |
 | **Linguagem** | PHP 7.4 | PHP 8.0 ou superior |
 | **Banco de Dados** | MySQL 5.7 / MariaDB 10.2 | MySQL 8.0+ / MariaDB 10.5+ |
 | **Extensões PHP** | `pdo_mysql`, `gd`, `curl` | `pdo_mysql`, `gd`, `curl`, `mbstring` |
@@ -53,28 +54,117 @@ Sistema web completo para gestão integrada de clínicas, agendamentos, prontuá
 
 ## 🚀 Instalação e Configuração
 
-### Opção A: Ambiente Local com XAMPP (Recomendado para Testes/Dev)
+---
 
-1. **Baixe e Instale o XAMPP:**
-   Acesse [apachefriends.org](https://www.apachefriends.org/) e instale a versão com **PHP 8.0 ou superior**.
-2. **Copie o Projeto:**
-   Mova a pasta do sistema para o diretório `htdocs` do XAMPP:
-   * Windows: `C:\xampp\htdocs\alfa_saude`
-   * Linux: `/opt/lampp/htdocs/alfa_saude`
-3. **Inicie os Serviços:**
-   Abra o **XAMPP Control Panel** e inicie os módulos **Apache** e **MySQL**.
-4. **Crie o Banco de Dados:**
-   * Acesse `http://localhost/phpmyadmin` no navegador.
-   * Crie um banco de dados chamado `alfa_saude` (Collation: `utf8mb4_unicode_ci`).
-   * Vá na aba **Importar**, selecione o arquivo `banco.sql` do repositório e clique em **Executar**.
+### 🖥️ Opção 1: Instalação Online (Servidor Web / Hospedagem / VPS)
+
+Ideal para colocar o sistema em produção e acessível pela internet.
+
+1. **Upload dos Arquivos:**
+   * Envie a pasta do projeto para o diretório raiz da sua hospedagem (ex: `public_html/alfa_saude` ou subdomínio `saude.seudominio.com.br`) via Gerenciador de Arquivos do cPanel ou FTP (FileZilla).
+
+2. **Criação e Importação do Banco de Dados:**
+   * Acesse o **phpMyAdmin** ou o assistente de banco de dados do cPanel.
+   * Crie um banco de dados com codificação `utf8mb4_unicode_ci` (ex: `usuario_alfa_saude`).
+   * Crie um usuário de banco de dados, atribua todas as permissões e anote a senha.
+   * Vá na aba **Importar**, selecione o arquivo `banco.sql` localizado na raiz do projeto e clique em **Executar**.
+
+3. **Configuração de Conexão:**
+   * Edite o arquivo `config/database.php` com os dados do seu servidor de hospedagem:
+     ```php
+     <?php
+     // config/database.php
+     $host     = 'localhost'; // Ou IP/Host do seu servidor MySQL
+     $dbname   = 'usuario_alfa_saude';
+     $username = 'usuario_banco';
+     $password = 'SuaSenhaForte123!';
+
+     try {
+         $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+     } catch (PDOException $e) {
+         die("Erro na conexão com o banco de dados: " . $e->getMessage());
+     }
+     ```
+
+4. **Permissões de Pastas:**
+   * Certifique-se de aplicar permissões de gravação (`755` ou `777`) para os diretórios de mídia:
+     ```bash
+     chmod -R 755 assets/img/
+     chmod -R 755 assets/qrcodes/
+     ```
+
+---
+
+### 💻 Opção 2: Instalação Local com XAMPP
+
+Ideal para testes, desenvolvimento ou uso em rede local na própria clínica.
+
+1. **Instalação do XAMPP:**
+   * Baixe e instale o XAMPP com **PHP 8.0+** em [apachefriends.org](https://www.apachefriends.org/).
+
+2. **Cópia do Projeto:**
+   * Mova a pasta do sistema para o diretório `htdocs` da sua instalação do XAMPP:
+     * **Windows:** `C:\xampp\htdocs\alfa_saude`
+     * **Linux:** `/opt/lampp/htdocs/alfa_saude`
+     * **macOS:** `/Applications/XAMPP/htdocs/alfa_saude`
+
+3. **Inicialização dos Serviços:**
+   * Abra o **XAMPP Control Panel** e inicie os módulos **Apache** e **MySQL**.
+
+4. **Criação e Importação do Banco de Dados:**
+   * Acesse `http://localhost/phpmyadmin` no seu navegador.
+   * Crie um novo banco de dados chamado `alfa_saude` (Collation: `utf8mb4_unicode_ci`).
+   * Vá na aba **Importar**, selecione o arquivo `banco.sql` do projeto e clique em **Executar**.
+
 5. **Configuração de Conexão:**
-   Ajuste o arquivo `config/database.php` para as credenciais padrão do XAMPP:
-   ```php
-   $host     = 'localhost';
-   $dbname   = 'alfa_saude';
-   $username = 'root';
-   $password = ''; // Padrão do XAMPP é sem senha
+   * Ajuste o arquivo `config/database.php` com os padrões do XAMPP:
+     ```php
+     <?php
+     // config/database.php
+     $host     = 'localhost';
+     $dbname   = 'alfa_saude';
+     $username = 'root';
+     $password = ''; // No XAMPP a senha padrão vem em branco
+     ```
 
+---
+
+## 🔑 Acesso Inicial
+
+Acesse a URL correspondente ao seu ambiente de instalação no navegador:
+
+* 🌐 **Online (Web):** `https://seusite.com.br/alfa_saude/login.php`
+* 💻 **Local (XAMPP):** `http://localhost/alfa_saude/login.php`
+
+> **Credenciais Padrão do Administrador:**
+> * **E-mail:** `alfa@alfasistemas.dev.br`
+> * **Senha:** `alfa123@`
+
+⚠️ **Importante:** Altere a senha do administrador logo no primeiro acesso acessando o menu **Usuários > Editar perfil**.
+
+---
+
+## 📂 Estrutura do Projeto
+
+```text
+alfa_saude/
+├── assets/
+│   ├── css/          # Estilos e temas da aplicação
+│   ├── js/           # Scripts front-end
+│   ├── img/          # Uploads de imagens e logotipos da clínica
+│   └── qrcodes/      # QR Codes gerados dinamicamente
+├── config/
+│   ├── auth.php      # Controle de sessão e autenticação
+│   └── database.php  # Configurações do banco de dados
+├── includes/
+│   ├── footer.php    # Rodapé padrão
+│   ├── sidebar.php   # Menu lateral de navegação
+│   └── topbar.php    # Barra superior com atalhos de perfil e tema
+├── modules/          # Módulos principais (agendamentos, pacientes, etc.)
+├── dashboard.php     # Painel de controle principal
+├── login.php         # Tela de autenticação
+└── logout.php        # Encerramento de sessão
 5. ESTRUTURA DE DIRETÓRIOS (resumo)
 alfa_saude/
 ├── assets/
