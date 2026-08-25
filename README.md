@@ -16,6 +16,26 @@ Sistema web completo para gestão integrada de clínicas, agendamentos, prontuá
 
 ---
 
+## 📸 Capturas de Tela
+
+| Dashboard Principal | Gestão de Agendamentos |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/1be75638-c7b6-4fbe-8019-df32b87f2ecb" width="100%" alt="Dashboard Alfa Saúde" /> | <img src="https://github.com/user-attachments/assets/b87f8796-567d-458e-acfd-bddaa01b2d27" width="100%" alt="Agendamentos" /> |
+
+| Prontuário Eletrônico | Cadastro de Pacientes |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/6a1e6c83-2fef-4cb2-bb71-c4b9aa8656d3" width="100%" alt="Prontuário Eletrônico" /> | <img src="https://github.com/user-attachments/assets/930b97b7-ab75-45ea-a134-366effe68f3a" width="100%" alt="Cadastro de Pacientes" /> |
+
+| Emissão de Documentos | Relatórios e Progresso |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/9a5a6b19-c9b3-4a9f-a9f2-e38ca27f36b2" width="100%" alt="Emissão de Documentos" /> | <img src="https://github.com/user-attachments/assets/1f0670a1-ec87-47c8-b867-81047259a6cd" width="100%" alt="Progresso do Paciente" /> |
+
+| Configurações da Clínica | Modo Escuro (Dark Mode) |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/e16ec72c-fb29-4c23-a79e-7f4fe1d4cabe" width="100%" alt="Configurações da Clínica" /> | <img src="https://github.com/user-attachments/assets/492675c4-74ca-42ca-92bc-a7f4f9fc9fef" width="100%" alt="Modo Escuro" /> |
+
+---
+
 ## 📌 Índice
 - [Recursos do Sistema](#-recursos-do-sistema)
 - [Pré-requisitos](#-pré-requisitos)
@@ -54,11 +74,7 @@ Sistema web completo para gestão integrada de clínicas, agendamentos, prontuá
 
 ## 🚀 Instalação e Configuração
 
----
-
 ### 🖥️ Opção 1: Instalação Online (Servidor Web / Hospedagem / VPS)
-
-Ideal para colocar o sistema em produção e acessível pela internet.
 
 1. **Upload dos Arquivos:**
    * Envie a pasta do projeto para o diretório raiz da sua hospedagem (ex: `public_html/alfa_saude` ou subdomínio `saude.seudominio.com.br`) via Gerenciador de Arquivos do cPanel ou FTP (FileZilla).
@@ -97,8 +113,6 @@ Ideal para colocar o sistema em produção e acessível pela internet.
 ---
 
 ### 💻 Opção 2: Instalação Local com XAMPP
-
-Ideal para testes, desenvolvimento ou uso em rede local na própria clínica.
 
 1. **Instalação do XAMPP:**
    * Baixe e instale o XAMPP com **PHP 8.0+** em [apachefriends.org](https://www.apachefriends.org/).
@@ -165,54 +179,3 @@ alfa_saude/
 ├── dashboard.php     # Painel de controle principal
 ├── login.php         # Tela de autenticação
 └── logout.php        # Encerramento de sessão
-5. ESTRUTURA DE DIRETÓRIOS (resumo)
-alfa_saude/
-├── assets/
-│   ├── css/          # Estilos e temas da aplicação
-│   ├── js/           # Scripts front-end
-│   ├── img/          # Uploads de imagens e logotipos da clínica
-│   └── qrcodes/      # QR Codes gerados dinamicamente
-├── config/
-│   ├── auth.php      # Controle de sessão e autenticação
-│   └── database.php  # Configurações do banco de dados
-├── includes/
-│   ├── footer.php    # Rodapé padrão
-│   ├── sidebar.php   # Menu lateral de navegação
-│   └── topbar.php    # Barra superior com atalhos de perfil e tema
-├── modules/          # Módulos principais (agendamentos, pacientes, etc.)
-├── dashboard.php     # Painel de controle principal
-├── login.php         # Tela de autenticação
-└── logout.php        # Encerramento de sessão
-
-6. PERSONALIZAÇÃO
-   - As cores do sistema podem ser alteradas no menu Clínica (após login como admin).
-   - O logo da clínica também pode ser enviado por lá.
-   - O tema escuro pode ser ativado pelo botão no canto superior direito.
-
-7. SOLUÇÃO DE PROBLEMAS COMUNS
-   - Erro de conexão: verifique as credenciais em `database.php` e se o MySQL está ativo.
-   - Página em branco: ative a exibição de erros no PHP (edite o arquivo e adicione `ini_set('display_errors', 1);` no início).
-   - Upload de logo não funciona: verifique permissões da pasta `assets/img/` (deve ser gravável).
-   - QR Code não aparece: certifique-se de que a pasta `assets/qrcodes/` existe e tem permissão de escrita.
-
-8. SUPORTE
-   - Em caso de dúvidas, entre em contato pelo e-mail: suporte@alfasistemas.dev.br
-   - Telefone: (85) 2028-4584
-   - Site: https://alfasistemas.dev.br
-
-
-     
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/1be75638-c7b6-4fbe-8019-df32b87f2ecb" /><img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/b87f8796-567d-458e-acfd-bddaa01b2d27" />
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/6a1e6c83-2fef-4cb2-bb71-c4b9aa8656d3" />
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/930b97b7-ab75-45ea-a134-366effe68f3a" />
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/9a5a6b19-c9b3-4a9f-a9f2-e38ca27f36b2" />
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/1f0670a1-ec87-47c8-b867-81047259a6cd" />
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/e16ec72c-fb29-4c23-a79e-7f4fe1d4cabe" /><img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/492675c4-74ca-42ca-92bc-a7f4f9fc9fef" />
-
-
-
-
-
-
-
-
