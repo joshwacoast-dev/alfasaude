@@ -70,3 +70,4 @@
 ===============================================================================
                          Obrigado por escolher a Alfa Sistemas!
 ===============================================================================
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/1be75638-c7b6-4fbe-8019-df32b87f2ecb" />
